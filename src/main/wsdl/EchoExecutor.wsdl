@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="executeAndForget">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="tns:EchoMsg" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EchoMsg">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MsgOfString" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MsgOfString" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Payload" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="executeAndForgetResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="execute">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="tns:EchoMsg" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="executeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="executeResult" type="tns:EchoMsg" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="executeAndForgetSoapIn">
+    <wsdl:part name="parameters" element="tns:executeAndForget" />
+  </wsdl:message>
+  <wsdl:message name="executeAndForgetSoapOut">
+    <wsdl:part name="parameters" element="tns:executeAndForgetResponse" />
+  </wsdl:message>
+  <wsdl:message name="executeSoapIn">
+    <wsdl:part name="parameters" element="tns:execute" />
+  </wsdl:message>
+  <wsdl:message name="executeSoapOut">
+    <wsdl:part name="parameters" element="tns:executeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EchoExecutorSoap">
+    <wsdl:operation name="executeAndForget">
+      <wsdl:input message="tns:executeAndForgetSoapIn" />
+      <wsdl:output message="tns:executeAndForgetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="execute">
+      <wsdl:input message="tns:executeSoapIn" />
+      <wsdl:output message="tns:executeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EchoExecutorSoap" type="tns:EchoExecutorSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="executeAndForget">
+      <soap:operation soapAction="http://tempuri.org/executeAndForget" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute">
+      <soap:operation soapAction="http://tempuri.org/execute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EchoExecutorSoap12" type="tns:EchoExecutorSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="executeAndForget">
+      <soap12:operation soapAction="http://tempuri.org/executeAndForget" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute">
+      <soap12:operation soapAction="http://tempuri.org/execute" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EchoExecutor">
+    <wsdl:port name="EchoExecutorSoap" binding="tns:EchoExecutorSoap">
+      <soap:address location="http://10.1.10.208:8181/Tests/EchoExecutor/EchoExecutor.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EchoExecutorSoap12" binding="tns:EchoExecutorSoap12">
+      <soap12:address location="http://10.1.10.208:8181/Tests/EchoExecutor/EchoExecutor.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
