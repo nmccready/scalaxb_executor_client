@@ -38,6 +38,7 @@ object ApplicationBuild extends Build {
   )
   lazy val ourScalaxbSettings = Seq(
       sourceGenerators in Compile <+= scalaxb in Compile,
+      sourceGenerators in Compile <+= scalaxb in Test,
       packageName in scalaxb in Compile := "com.nem.web.client.scalaxb")
 
   val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA,
