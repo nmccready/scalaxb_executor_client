@@ -1,8 +1,14 @@
 resolvers ++= Seq(
+"Sonatype snapshots" at "http://oss.sonatype org/content/repositories/snapshots/",
+"Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
   "sonatype-public" at "https://oss.sonatype.org/content/groups/public",
-  "repo.codahale.com" at "http://repo.codahale.com",
-  "Sonatype snapshots" at "http://oss.sonatype.org/content/repositories/snapshots/")
+  "repo.codahale.com" at "http://repo.codahale.com")
+  
 
-addSbtPlugin("com.github.mpeltonen" % "sbt-idea" % "1.2.0-SNAPSHOT")
+addSbtPlugin("play" % "sbt-plugin" % "2.1-09092012")
+
+addSbtPlugin("com.github.mpeltonen" % "sbt-idea" % "1.1.0-TYPESAFE")
 
 addSbtPlugin("org.scalaxb" % "sbt-scalaxb" % "0.7.3")
+
+addSbtPlugin("com.eed3si9n" % "sbt-buildinfo" % "0.2.0")

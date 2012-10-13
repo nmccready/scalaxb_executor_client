@@ -1,0 +1,21 @@
+#!/bin/sh
+
+PROD_DIST_DIR="prod-dist"
+PACKAGE_DIR="txdotc2c"
+PRE_PACKAGE_DIR="$PROD_DIST_DIR/$PACKAGE_DIR"
+LIB_DIRECTORY="$PRE_PACKAGE_DIR/lib"
+STAGE_DIR="target/staged"
+PROD_CONF="conf/prod.conf"
+MANAGEMENT_SCRIPT_NAME="txdotc2c.sh"
+MANAGEMENT_SCRIPT="scripts/$MANAGEMENT_SCRIPT_NAME"
+DIST_TAR="txdotc2c.tar.gz"
+
+rm -rf $PROD_DIST_DIR
+mkdir -p $PRE_PACKAGE_DIR
+./sbt clean compile stage
+cp -r $STAGE_DIR $LIB_DIRECTORY
+cp $PROD_CONF $PRE_PACKAGE_DIR
+cp $MANAGEMENT_SCRIPT $PRE_PACKAGE_DIR
+chmod +x $PRE_PACKAGE_DIR/$MANAGEMENT_SCRIPT_NAME
+cd $PROD_DIST_DIR && tar -pczf $DIST_TAR $PACKAGE_DIR
+echo "The production tar is located at $PROD_DIST_DIR/$DIST_TAR"

@@ -1,0 +1,242 @@
+/*
+  html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+  v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
+  html5doctor.com/html-5-reset-stylesheet/
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  font-size:100%;
+  font: inherit;
+  vertical-align:baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display:block;
+}
+
+blockquote, q { quotes:none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
+
+table{border-collapse:collapse;border-spacing:0;}
+
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+
+input, select { vertical-align:middle; }
+
+/* END RESET CSS */
+
+body{
+	margin: auto;
+	width: 90%;
+	text-align: center;
+	font: 14px helvetica, arial  sans-serif normal;
+	background: #333;
+}
+
+a{ 
+	color: #fc0; 
+	text-decoration:none; 
+}
+a.thisPage{
+	font-size: 15px;
+	font-weight: bold;
+}
+#header{
+	padding:10px;
+	background: #000;
+	text-align: center;
+    overflow: hidden;
+}
+#header_nav{
+	display: inline-block;
+	float: right;
+	text-align: left;
+} 
+#header_nav ul{
+	display: inline-block;
+	clear:right;
+	height: auto;
+}
+
+#logo{
+	float: left;
+	margin:10px 0px;
+	display:block;
+}
+
+#content_body{
+	color:white;
+	background: #436389;
+	padding:0px;
+	margin: 0px;
+	text-align:left;
+	height: 1000px;
+}
+
+#left_column, #right_column{
+	background: #436389;
+	height: 90%;
+	width: 25%;
+	padding: 10px;
+	margin: 20px;
+}
+
+#left_column{
+	float: left;
+}
+
+#right_column{
+	float: left;
+	float: left;
+}
+#right_column_encoderForm{
+    margin-top:40px;
+}
+
+input{
+	width: 300px;
+}
+
+fieldset
+{
+	padding: 10px;
+}
+
+.validationMessage{
+	color: red;
+	padding: 10px;
+}
+
+#footer{
+	clear: both;
+	text-align:center;
+    text-transform: uppercase;
+    color:white;
+}
+
+#footer ul{
+	padding:0px;
+	margin: 10px 0px;
+    list-style:none;
+}
+
+.tableSpaceWhiteBody,td{
+    border-spacing:2px;
+    border:1px solid white;
+    width=100%;
+    text-align:left;
+}
+.tableSpaceWhiteHead,th{
+    border-spacing:2px;
+    border:1px solid white;
+    width=100%;
+    text-align:center;
+    font-weight:Bold;
+    font-style:Italic;
+    font-size:15px;
+    padding-left:5px;
+    padding-right:5px;
+    color:#fc0;
+}
+
+.tableSelection tr:hover {
+    background-color: #1b2531;
+}
+
+td:hover {
+    cursor: pointer;
+}
+
+.divTable{
+    padding-right: 100px;
+    display:table;
+}
+#likeVideoFormTable p, #likeVideoFormTable input{
+    margin-left:5px;
+    vertical-align: baseline;
+    content:normal;
+    display:inline;
+}
+#dialogSelectedVideoFeedPossibleEdit table{
+    text-align:left;
+    margin-left:5px;
+}
+#dialogSelectedVideoFeedPossibleEdit th{
+    font-weight:none;
+    font-style:normal;
+    color:white;
+    text-align:left;
+}
+.allWhiteTable table{
+    text-align:left;
+    margin-left:5px;
+}
+.allWhiteTable th{
+    font-weight:normal;
+    font-style:normal;
+    color:white;
+    text-align:left;
+    font-size:14px;
+}
+a[href]{
+	color:#00CCFF;
+	text-decoration:underline;
+	font-weight:normal;
+    font-style:italic;
+    text-align:left;
+    font-size:14px;
+}
+
+input:disabled {
+    color:white;
+    background-color:gray;
+}
+
+input:leftFloat{
+ float:left;
+}
+
+.leftElement{
+	float: left;
+}
+
+.hidden{
+    display:none;
+}
+
+div.sliderHeader{
+}
+a.slider{
+}
+.liHide {
+   list-style:none;
+}
+
+.headerNavNormal{
+	display: inline-block;
+	float: right;
+	text-align: left;
+}
+.hideMe{visibility:hidden;}
