@@ -23,7 +23,8 @@ object ApplicationBuild extends Build {
     resolvers ++= Dependencies.resolutionRepos,
     sourceDirectories in Compile <+= baseDirectory / "test",
     testOptions in Test += 
-      Tests.Argument(TestFrameworks.Specs2, "console", "junitxml")
+      Tests.Argument(TestFrameworks.Specs2, "console", "junitxml"),
+    logLevel in compile := Level.Error
   )
 
   lazy val allSettings = Defaults.defaultSettings ++ ourSettings ++ 

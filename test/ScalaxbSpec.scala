@@ -25,7 +25,7 @@ class ScalaxbSpec extends Specification with Mockito {
         response.right.exists((resp:ExecuteResponse) =>{
           resp.executeResult match{
             case Some(msg) =>
-              msg == "Hi from Server!"
+              msg.Payload.get == "Hi from Server!"
             case None => false
           }
         })
